@@ -1,0 +1,12 @@
+{
+	"home": {
+		"html": {
+			"border": "10px"
+		},
+		"ul": {
+			"border": "2px",
+			"font-size": "10pt",
+			"color": "black"
+		}
+	}
+}

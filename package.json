@@ -1,0 +1,31 @@
+{
+  "name": "cssdiff",
+  "version": "0.0.1",
+  "description": "A css diff utility.",
+  "main": "cssdiff.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "casperjs": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrfaller/cssdiff.git"
+  },
+  "keywords": [
+    "css",
+    "diff",
+    "test"
+  ],
+  "author": "Jean-Rémy Falleri",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jrfaller/cssdiff/issues"
+  },
+  "homepage": "https://github.com/jrfaller/cssdiff#readme"
+}
