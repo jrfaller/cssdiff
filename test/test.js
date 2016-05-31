@@ -15,6 +15,13 @@ describe('cssdump', function() {
 				'HTML > HEAD:nth-child(1)',
 				'HTML > HEAD:nth-child(1) > STYLE:nth-child(2)',
 				'HTML > HEAD:nth-child(1) > TITLE:nth-child(1)'
-			]);
+			]
+		);
+		var h1 = res['site']['HTML > BODY:nth-child(2) > H1:nth-child(1)'];
+		assert.property(h1, 'font-size');
+		assert.propertyVal(h1, 'font-size', '12px');
+		var body = res['site']['HTML > BODY:nth-child(2)'];
+		assert.property(body, 'margin-top');
+		assert.propertyVal(body, 'margin-top', '10px');
 	});
 });
