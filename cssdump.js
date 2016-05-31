@@ -9,34 +9,39 @@ var plan = require(casper.cli.args[0]);
 var dump = {};
 var snapshot = function(name, dump) {
 	var res = {};
-	var elements = __utils__.getElementsByXPath('//*');
-	for (var i in elements) {
+	var elements = document.getElementsByTagName("*");
+	for (var i = 0; i < elements.length; i++) {
 		var e = elements[i];
 		var css = {}
-		if (e.nodeType == 1) {
-			var style = window.getComputedStyle(e);
-			for (var j = 0; j < style.length; j++) {
-				var prop = style.item(j);
-				css[prop] = style.getPropertyValue(prop);
-			}
-			res[fullPath(e)] = css;
+		var style = window.getComputedStyle(e);
+		for (var j = 0; j < style.length; j++) {
+			var prop = style.item(j);
+			css[prop] = style.getPropertyValue(prop);
 		}
+		res[fullPath(e)] = css;
 	}
 	dump[name] = res;
 	return dump;
 }
 
+function l(path) {
+	if (casper.cli.options["local"] == true)
+		return 'file://' + fs.absolute(path);
+	else
+		return path;
+}
+
 var current = plan.shift();
 var action = Object.keys(current).shift();
 var value = current[action];
-casper.start(current["start"]);
+casper.start(l(value));
 while (plan.length > 0) {
 	current = plan.shift();
 	action = Object.keys(current).shift();
 	value = current[action];
 	switch (action) {
 		case "open":
-			casper.thenOpen(value);
+			casper.thenOpen(l(value));
 			break;
 		case "snapshot":
 			(function(value) {

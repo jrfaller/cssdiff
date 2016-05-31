@@ -1,4 +1,4 @@
 [
-	{"start": "file:///test/site.html"},
+	{"start": "test/site.html"},
 	{"snapshot": "site"}
 ]
