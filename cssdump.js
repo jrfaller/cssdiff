@@ -18,7 +18,7 @@ var snapshot = function(name, dump) {
 			var prop = style.item(j);
 			css[prop] = style.getPropertyValue(prop);
 		}
-		res[fullPath(e)] = css;
+		res[myFullPath(e)] = css;
 	}
 	dump[name] = res;
 	return dump;

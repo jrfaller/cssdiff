@@ -15,3 +15,21 @@ function fullPath(el){
 	}
 	return names.join(" > ");
 }
+
+function myFullPath(el) {
+	var names = [];
+	while (el.parentNode){
+		name = el.tagName.toLowerCase();
+		if (el.className != "") {
+			var classes = el.className.split(' ')
+			if (classes.length > 0)
+				for (var id in classes)
+					name += '.' + el.className.split(' ')[id];
+		}
+		if (el.id)
+			name += '#' + el.id;
+		names.unshift(name);
+		el = el.parentNode;
+	}
+	return names.join(" ");
+}
