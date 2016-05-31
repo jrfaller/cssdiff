@@ -9,7 +9,6 @@ var res = {};
 function diffSnapshot(srcSnapshot, dstSnapshot) {
 	var res = {};
 	for(var selector in srcSnapshot) {
-		console.log(selector);
 		if (dstSnapshot.hasOwnProperty(selector)) {
 			var diff = diffSelector(srcSnapshot[selector], dstSnapshot[selector]);
 			if (diff.length > 0)
@@ -23,9 +22,6 @@ function diffSnapshot(srcSnapshot, dstSnapshot) {
 function diffSelector(srcSelector, dstSelector) {
 	var patch = [];
 	for(var property in srcSelector) {
-		console.log(property);
-		console.log(srcSelector[property]);
-		console.log(dstSelector[property]);
 		if (!dstSelector.hasOwnProperty(property))
 			patch.push({
 				action: "removed",
@@ -52,7 +48,6 @@ function diffSelector(srcSelector, dstSelector) {
 
 var res = {};
 for (var snapshot in src) {
-	console.log(snapshot);
 	//TODO handle missing snapshots?
 	var diff = diffSnapshot(src[snapshot], dst[snapshot]);
 	if (Object.keys(diff).length > 0)
