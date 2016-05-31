@@ -7,7 +7,9 @@
     "test": "test"
   },
   "dependencies": {
-    "casperjs": "^1.1.1"
+    "casperjs": "^1.1.1",
+    "chai": "^3.5.0",
+    "shelljs": "^0.7.0"
   },
   "devDependencies": {},
   "scripts": {
