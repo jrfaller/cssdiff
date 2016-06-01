@@ -28,6 +28,31 @@ function myFullPath(el) {
 		}
 		if (el.id)
 			name += '#' + el.id;
+
+
+		/*var siblings = el.parentNode.childNodes.filter(function(node) {
+			return node.nodeType == 1 && node.tagName == el.tagName;
+		});
+		name += "/" + el.parentNode.childNodes.toString();
+		*/
+
+
+		var siblings = el.parentNode.childNodes;
+		if (siblings.length > 1) {
+			var pos = -1;
+			var nb = 0;
+			for (var i = 0; i < siblings.length; ++i) {
+				var sibling = siblings[i];
+				if (sibling.nodeType == 1 && sibling.tagName == el.tagName) {
+					if (sibling == el)
+						pos = nb;
+					nb++;
+				}
+			}
+			if (nb > 1)
+				name += "/" + pos;
+		}
+
 		names.unshift(name);
 		el = el.parentNode;
 	}
