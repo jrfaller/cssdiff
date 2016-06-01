@@ -29,14 +29,6 @@ function myFullPath(el) {
 		if (el.id)
 			name += '#' + el.id;
 
-
-		/*var siblings = el.parentNode.childNodes.filter(function(node) {
-			return node.nodeType == 1 && node.tagName == el.tagName;
-		});
-		name += "/" + el.parentNode.childNodes.toString();
-		*/
-
-
 		var siblings = el.parentNode.childNodes;
 		if (siblings.length > 1) {
 			var pos = -1;
